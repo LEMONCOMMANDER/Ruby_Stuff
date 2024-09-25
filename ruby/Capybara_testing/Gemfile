@@ -1,0 +1,14 @@
+
+
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# gem "rails"
+
+=begin NOTES
+check: https://www.youtube.com/watch?v=yP4Fxg0Tdos
+this is where the gems you use in your envionrment are stored... i image this is like node modules or package.json
+=end
+
+# get 'rspec'

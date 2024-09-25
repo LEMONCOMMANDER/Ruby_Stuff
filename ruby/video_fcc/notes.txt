@@ -1,0 +1,20 @@
+
+check gpt chats about ruby - there are only 2
+
+Conversion	        Method
+-----------        ---------
+Boolean             = !!value -- determines false or true on if the object assigned is truthy or falsy 
+Integer to String	.to_s
+String to Integer	.to_i -- will cut off any string components | stops at the first non integer
+String to Float	    .to_f
+Symbol to String	.to_s
+String to Symbol	.to_sym, .intern
+Float to Integer	.to_i
+Integer to Float	.to_f
+check type          .class
+Check Length	    .length, .size
+Check Empty	        .empty?
+
+----------------------------------------
+nil = no value | still need to check if there are other types of data like undefined?
+
