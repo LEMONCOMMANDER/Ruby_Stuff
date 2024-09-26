@@ -66,8 +66,9 @@ class GoogleSearch
 
         begin
             # Adjust the wait time as necessary
-            find('.tjvcx.GvPZzd.cHaqb', wait: 10).click
-        rescue Capybara::ElementNotFound
+            find(:css, 'cite.tjvcx.GvPZzd.cHaqb', wait: 10).click
+        rescue Capybara::ElementNotFound => e 
+            puts e
             puts "Element not found"
         end
         # click_item = find_link("https://www.srsacquiom.com")
