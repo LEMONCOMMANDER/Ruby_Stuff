@@ -2,13 +2,21 @@
 
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source "https://rubygems.org" # where the depenencies are installed -> where ruby will check to install the gems
 
 # gem "rails"
 
 =begin NOTES
 check: https://www.youtube.com/watch?v=yP4Fxg0Tdos
+check 2: https://www.youtube.com/watch?v=bpeqyVkbMGs
+
 this is where the gems you use in your envionrment are stored... i image this is like node modules or package.json
 =end
 
 # get 'rspec'
+
+ruby "" # version here
+
+gem 'base64'
+                # will not go above 3, but any decimal okay above .3
+gem 'openssl', '~> 3.3' ,:git => 'https://github.com/ruby/openssl' # check git first then source
