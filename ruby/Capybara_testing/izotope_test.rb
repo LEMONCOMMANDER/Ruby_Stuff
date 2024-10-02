@@ -2,6 +2,7 @@ require 'capybara/dsl'
 require 'rspec'
 
 require_relative "login_info"
+# requires you to add your own info to the template file and rename.... 
 
 Capybara.default_driver = :selenium_chrome
 Capybara.default_max_wait_time = 10
