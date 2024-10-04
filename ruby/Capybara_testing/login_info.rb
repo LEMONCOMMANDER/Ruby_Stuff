@@ -8,6 +8,7 @@ class Login
     some things will return a true or false, the intention is to use this as a verification in the working code base if desired.
 =end
     def initialize()
+        puts "--------------------------------------"
         puts " Login class: use .help() for details"
         puts "--------------------------------------"
         if File.exist?('creds.json')

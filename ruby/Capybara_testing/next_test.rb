@@ -12,7 +12,7 @@ Capybara.default_max_wait_time = 8
 
 @creds = Login.new
 metrics = Metrics.new
-ttime = nil
+# @ttime = nil
 message = nil
 
 RSpec.shared_context "shared" do 
@@ -23,20 +23,74 @@ RSpec.shared_context "shared" do
         if message == nil
             message = "--"
         end
-        metrics.report(ttime, @message)
+        metrics.report(@ttime, @message)
     end
 end
 
-RSpec.describe "test1" do
-    include_context "shared"
-    it "does something 1" do 
-        ttime = Time.now
-        expect(5).to eq(5)
-    end
+# RSpec.describe "amazon attempt" do
+#     include_context "shared"
+#     it "does something 1" do 
+#         visit('https://www.amazon.com/')
+#         @ttime = Time.now
+#         find('#nav-link-accountList').click
+#         sleep(1)
+#         find('#createAccountSubmit').click
+#         sleep(1)
+#         find('#ap_customer_name').set("joe test")
+#         sleep(2)
+#         find('#ap_email').set('jtroop130@gmail.com')
+#         sleep(2)
+#         find('#ap_password').set("Autotest1!")
+#         sleep(2)
+#         find('#ap_password_check').set("Autotest1!")
+#         sleep(1)
+#         find('#continue').clickun
+#     end
+RSpec.describe "account creation practice" do
+    include Capybara::DSL
+    it "|| presonus attempt" do 
+        visit('https://www.presonus.com/en-US/start')
+        @ttime = Time.now
+        page.driver.browser.manage.window.maximize
+        #################################################
+        sleep(10)
+        # #########################################################################################################
+        #     "GPT FOR TEST"
+        #     # Find the button using data-testid or id
 
-    it "does something 2" do 
-        ttime = Time.now
-        expect(5).not_to eq(7)
+        #     # toggle_button = find('button#toggle-toggle-ccpa-banner')
+        #     toggle_button = find('button.sc-leSDtu.hIcmFD')
+        #     #toggle-toggle-ccpa-banner
+
+        #     # Check the aria-checked attribute
+        #     if toggle_button[:'aria-checked'] == "false"
+        #         # If aria-checked is "false", click the button to toggle it
+        #         toggle_button.click
+        #         puts "Toggled the switch to NOT sell data."
+        #     else
+        #         # If aria-checked is "true", no action is needed
+        #         puts "The toggle is already set to NOT sell data."
+        #     end
+        #     sleep(2)
+        # #########################################################################################################
+        # find('.sc-dcJsrY').click
+        #     sleep(2)
+        #########################################################################################################
+        find('.c-site-header__top__utility--item > div:nth-child(1) > a:nth-child(1)').click
+            sleep(2)
+        find('label.option:nth-child(2)').click
+            sleep(2)
+        # find('input.login-input.ng-pristine.ng-valid.ng-touched').set("joe")
+        page.fill_in("First Name",	with: "joe") 
+            sleep(2)
+        find('input.login-input:nth-child(2)').set('test')
+            sleep(2)
+        find('div.single-input:nth-child(3) > input:nth-child(1)').set('jibjif1@gmail.com')
+            sleep(2)
+        find('.password-input > input:nth-child(1)').set("Autotest1!")
+            sleep(2)
+        # find('#recaptcha-anchor').click
+        page.check('span#recaptcha-anchor')
+            sleep(10)
     end
 end
-

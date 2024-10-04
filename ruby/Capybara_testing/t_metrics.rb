@@ -4,7 +4,9 @@ class Metrics
     include Capybara::DSL
 ######################################################################################################## 
     def initialize()
-        puts "Metrics: use .help() for details"
+        puts "--------------------------------------"
+        puts "  Metrics: use .help() for details"
+        puts "--------------------------------------"
         @run = 1
     end
 
@@ -17,8 +19,10 @@ class Metrics
                 This will calculate the load time of the webdriver. The full test length will also be calclated.
                 
                     start(): Called at the beggining of each test - time stamp
+                   ----------
 
                     report(ttime, message): takes ttime and optional message. Called at the tend of each test - metrics
+                   ------------------------
             HEREDOC
     end
 
@@ -26,7 +30,7 @@ class Metrics
         @start_time = Time.now 
     end
 
-    def report(ttime, message)
+    def report(ttime=nil, message)
         @end_time = Time.now
         if current_url == nil or ""
             @end_url = "NO URL"
@@ -34,10 +38,11 @@ class Metrics
             @end_url = current_url
         end
         execution_length = (@end_time - @start_time).round(3)
-        load_time = (ttime - @start_time).round(3)
         if ttime == nil
             t = "none"
             load_time = 0.00 
+        else
+            load_time = (ttime - @start_time).round(3)
         end
             puts ""
             puts "_____________________________ EXECUTION TIME _____________________________"
