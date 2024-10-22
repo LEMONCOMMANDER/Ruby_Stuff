@@ -56,3 +56,4 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 /ruby/Capybara_testing/creds.json
+/ruby/codewars_file.rb

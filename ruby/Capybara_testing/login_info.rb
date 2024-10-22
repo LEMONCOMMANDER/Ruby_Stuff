@@ -22,24 +22,29 @@ class Login
 
     def help()
         puts <<~HEREDOC
-            Login: If 'creds.json' is not present, it will be created - otherwise it will be read. Format for creds.json:
+            Login (Class): If 'creds.json' is not present, it will be created - otherwise it will be read. Format for creds.json:
                     {
                         "app_name": {"username": -- , "password": --}
                     }
+                    NOTE: app name should always be given as a symbol (:example)
 
-            new_cred? -- Takes the name of the application you are using, your username, and your password.
+            new_cred? -- (app name, username, password) 
+                        Takes the name of the application you are using, your username, and your password.
                         If the application is in creds.json, return false.  If not already there, it will be added and 
                         return true. A console log will also update the user. 
 
                         The return element can be used for testing in the scope of the code using this class
             
-            delete_cred? -- Takes the name of the application and checks creds.json. If found, it will delete the key:value pair
+            delete_cred? -- (app name)
+                        Takes the name of the application and checks creds.json. If found, it will delete the key:value pair
                         and return true. Othewise, updates the user that no application was found and returns false.
 
-            get_cred -- Searches creds.json for the application name and if found, returns an array with the username and password.
+            get_cred -- (app name) - string or symbol
+                        Searches creds.json for the application name and if found, returns an array with the username and password.
                         If not found, updates the user.
 
-            get_creds -- logs all the application names and total count of applications found in creds.json.
+            get_creds -- ()
+                        logs all the application names and total count of applications found in creds.json.
                         Also returns an array with the application names. 
         HEREDOC
     end
@@ -71,7 +76,7 @@ class Login
         end
     end
 
-    def get_cred(app_name) # gets a single credential  
+    def get_cred(app_name) # gets a single credential 
         if @credentials.has_key?(app_name.to_sym)
             username = @credentials[app_name][:username]
             password = @credentials[app_name][:password]

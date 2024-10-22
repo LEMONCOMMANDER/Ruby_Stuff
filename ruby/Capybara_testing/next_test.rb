@@ -27,25 +27,7 @@ RSpec.shared_context "shared" do
     end
 end
 
-# RSpec.describe "amazon attempt" do
-#     include_context "shared"
-#     it "does something 1" do 
-#         visit('https://www.amazon.com/')
-#         @ttime = Time.now
-#         find('#nav-link-accountList').click
-#         sleep(1)
-#         find('#createAccountSubmit').click
-#         sleep(1)
-#         find('#ap_customer_name').set("joe test")
-#         sleep(2)
-#         find('#ap_email').set('jtroop130@gmail.com')
-#         sleep(2)
-#         find('#ap_password').set("Autotest1!")
-#         sleep(2)
-#         find('#ap_password_check').set("Autotest1!")
-#         sleep(1)
-#         find('#continue').clickun
-#     end
+
 RSpec.describe "account creation practice" do
     include Capybara::DSL
     it "|| presonus attempt" do 

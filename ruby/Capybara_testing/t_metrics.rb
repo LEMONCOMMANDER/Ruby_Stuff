@@ -26,16 +26,29 @@ class Metrics
             HEREDOC
     end
 
+    ##
+    # call .help() function for more details...
+    #
+    # takes no arguments, should be used in a before(:each) block to catpure time at the start of each test
+    #
     def start() 
-        @start_time = Time.now 
+        @start_time = Time.now
     end
 
-    def report(ttime=nil, message)
+    ##
+    # call .help() function for more details...
+    #
+    # (ttime=nil, message)
+    # takes ttime when called which should be a time stamp after a url change OR the beggining of an it block
+    # takes an optional message to display in the report
+    #
+    def report(ttime=nil, c_url, message)
         @end_time = Time.now
-        if current_url == nil or ""
+        if c_url == nil or c_url == ""
+            puts(c_url)
             @end_url = "NO URL"
         else
-            @end_url = current_url
+            @end_url = c_url
         end
         execution_length = (@end_time - @start_time).round(3)
         if ttime == nil
@@ -56,12 +69,12 @@ class Metrics
         if load_time == 0.00
                 puts ("No ttime or webdriver already loaded... no load time")
         else
-                puts ("files took #{load_time} to load")
+                puts ("driver took #{load_time} to load")
         end
             puts ("the lenght of this test was: #{execution_length} seconds")
             puts ("end url of test: #{@end_url}")
             puts ""
-            puts "_____________________________ EXECUTION TIME _____________________________"
+            puts "_____________________________ END | EXECUTION TIME ________________________"
             puts ""
         @run += 1
     end
