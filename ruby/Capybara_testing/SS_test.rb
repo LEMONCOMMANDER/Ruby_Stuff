@@ -108,7 +108,7 @@ RSpec.describe "A UI test on SmartSuite" do
         find('[aria-label="Due Date"] > :nth-child(3)', visible: :all).click # "Due Date"
             find('div.menu-option-wrapper__list > :nth-child(8)').click
             find('ss-ui-row.row > :nth-child(2)').click # yes
-            sleep(1)
+            sleep(1) # needs delay for application side
         find('[aria-label="Status"] > :nth-child(3)', visible: :all).click # "Status"
             find('div.menu-option-wrapper__list > :nth-child(8)').click
             find('ss-ui-row.row > :nth-child(2)').click # yes
@@ -207,11 +207,10 @@ RSpec.describe "A UI test on SmartSuite" do
         find('button[aria-label="Report Toolbar Button Spotlight"]').click
         find('button[aria-label="Conditions"]').click
         find('input[aria-label="Enter text here..."]').click.set('UI test record')
-        # find('p[aria-label="UI text field grid cell content"]').click
         find('button[aria-label="Report Toolbar Button Spotlight"]').click
         
-            # not working properly 
-            expect(page).to have_selector('grid-view-row__spotlight.grid-view-row__dragging-opacity[style="background-color: rgb(58, 134, 255);"]')
-        sleep(5)
+            expect(page).to have_selector('span.grid-view-row__spotlight.grid-view-row__dragging-opacity[style="background-color: rgb(58, 134, 255);"]')
+            # @@@@ T19 | makes sure the spotlight feature correctly highlights the record         
+            sleep(3)
     end
 end # rspec
